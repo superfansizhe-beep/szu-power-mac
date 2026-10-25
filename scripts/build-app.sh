@@ -59,6 +59,10 @@ PLIST
 echo "==> 签名（ad-hoc）"
 codesign --force --sign - "$APP" >/dev/null 2>&1 || echo "   签名失败，不影响本机使用"
 
+echo "==> 打包 zip"
+python3 "$ROOT/scripts/make-zip.py" "$APP" "$DIST/szu-power-mac-v$VERSION.zip"
+
 echo ""
 echo "完成：$APP"
+echo "      $DIST/szu-power-mac-v$VERSION.zip"
 echo "把它拖进「应用程序」文件夹即可。"

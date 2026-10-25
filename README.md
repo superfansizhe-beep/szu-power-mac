@@ -39,7 +39,16 @@ PowerShell 5.1 + WPF 自绘界面 + `System.Windows.Forms.NotifyIcon` 托盘 + W
 
 ## 装
 
-### 方式一：自己编译（推荐）
+### 方式一：下载 Release（最省事）
+
+到 [Releases](https://github.com/superfansizhe-beep/szu-power-mac/releases) 下载 `szu-power-mac-v1.0.0.zip`，
+解压后把 `深大电量.app` 拖进「应用程序」。
+
+> ⚠️ 这个包是 ad-hoc 签名（没走苹果公证），第一次打开会被 Gatekeeper 拦一下：
+> 右键点 `深大电量.app` → **打开** → 再点「打开」就行。
+> 想省事就在终端跑一次：`xattr -dr com.apple.quarantine /Applications/深大电量.app`
+
+### 方式二：自己编译（推荐开发者）
 
 ```bash
 git clone https://github.com/superfansizhe-beep/szu-power-mac.git
@@ -49,7 +58,7 @@ cd szu-power-mac
 
 产物在 `dist/深大电量.app`，拖进「应用程序」文件夹就能用。
 
-### 方式二：只跑命令行的
+### 方式三：只跑命令行的
 
 ```bash
 swift build -c release
@@ -144,6 +153,11 @@ Sources/SZUPower/
 ├── LaunchAgent.swift          开机自启
 ├── CLIMode.swift              命令行模式
 └── DebugRender.swift          离屏渲染调试
+
+scripts/
+├── build-app.sh               打包 .app
+├── make-icon.swift            生成图标
+└── make-zip.py                打 zip（保证 UTF-8 文件名 + 权限位）
 ```
 
 ## 开发
