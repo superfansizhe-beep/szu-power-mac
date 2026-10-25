@@ -186,6 +186,7 @@ SZU_APPEARANCE=light|dark SZU_RENDER_CARD=/tmp/card.png ./.build/debug/SZUPower
 ## 致谢
 
 - 上游 Windows 版：[hongsawd/szu-battery-inquiry](https://github.com/hongsawd/szu-battery-inquiry)（MIT）
+  - macOS 版的起因与讨论见上游 Issue：[#1 macOS 支持 —— 已有一个 Swift + AppKit 重写版](https://github.com/hongsawd/szu-battery-inquiry/issues/1)
 - 数据来源：深圳大学 SIMS 电控网上查询系统
 
 ## License
